@@ -175,7 +175,7 @@ function install(req, res) {
 	const setupEnvVars = {
 		...process.env,
 		NODEBB_URL: nconf.get('url') || req.body.url || (`${req.protocol}://${req.get('host')}`),
-		NODEBB_PORT: process.env.PORT || 3001 || nconf.get('port') || 4567,
+		NODEBB_PORT: process.env.PORT || nconf.get('port') || 4567,
 		NODEBB_ADMIN_USERNAME: nconf.get('admin:username') || req.body['admin:username'],
 		NODEBB_ADMIN_PASSWORD: nconf.get('admin:password') || req.body['admin:password'],
 		NODEBB_ADMIN_EMAIL: nconf.get('admin:email') || req.body['admin:email'],
